@@ -1,0 +1,22 @@
+#include <NewPing.h>
+
+
+//#include <NewPing.h>
+#define TRIGGER_PIN 8
+#define ECHO_PIN 7
+#define MAX_DISTANCE 400
+
+NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); 
+
+void setup() {
+Serial.begin(115200); 
+}
+
+void loop() {
+delay(100); 
+unsigned int uS = sonar.ping();
+Serial.print("Ping: ");
+Serial.print(uS / US_ROUNDTRIP_CM); 
+Serial.println("cm");
+delay(100);
+}
